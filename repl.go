@@ -1,9 +1,11 @@
 package main
 
-import "strings"
+import (
+	"strings"
+)
 
 func cleanInput(text string) []string {
-	lower_text := strings.ToLower(text)
-	words := strings.Fields(lower_text)
+	output := strings.ToLower(text)
+	words := strings.Fields(output)
 	return words
 }
