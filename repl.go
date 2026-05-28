@@ -19,8 +19,18 @@ func startRepl() {
 		}
 
 		commandName := words[0]
+		commands := getCommands()
 
-		fmt.Printf("Your command was: %s\n", commandName)
+		command, found := commands[commandName]
+		if found {
+			err := command.callback()
+			if err != nil {
+				fmt.Println(err)
+			}
+		} else {
+			fmt.Println("Unknown command")
+		}
+
 	}
 }
 
